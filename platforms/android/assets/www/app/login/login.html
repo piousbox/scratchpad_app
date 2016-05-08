@@ -1,0 +1,9 @@
+app / login.html
+
+<input type="text" ng-model="main.username"><br />
+<input type="password" ng-model="main.password"></br />
+
+<button ng-click="main.register()">Register</button>
+<button ng-click="main.login()">Login</button>
+<button ng-click="main.logout()" ng-show="main.isAuthed()">Logout</button>
+
