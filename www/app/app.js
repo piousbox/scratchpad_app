@@ -1,8 +1,11 @@
 
 angular.module('scratchpadApp', [
-  'uiRouterSample.contacts',
-  'uiRouterSample.contacts.service',
-  'uiRouterSample.utils.service',
+  'scratchpadApp.scratchpad',
+  'scratchpadApp.login',
+
+  // 'uiRouterSample.contacts',
+  // 'uiRouterSample.contacts.service',
+  // 'uiRouterSample.utils.service',
   'ui.router', 
   'ngAnimate',
 
@@ -80,7 +83,7 @@ angular.module('scratchpadApp', [
             }]
         })
 
-        .state('login', {
+        /* .state('login', {
           url: '/login',
           templateUrl: "/templates/login.html",
           controller: 'LoginCtrl'
@@ -89,7 +92,7 @@ angular.module('scratchpadApp', [
         .state('scratchpad', {
           url: '/scratchpad',
           templateUrl: "/templates/scratchpad.html"
-        })
+        }) */
 
     }
   ]
