@@ -1,10 +1,12 @@
-// Make sure to include the `ui.router` module as a dependency
-angular.module('uiRouterSample', [
+
+angular.module('scratchpadApp', [
   'uiRouterSample.contacts',
   'uiRouterSample.contacts.service',
   'uiRouterSample.utils.service',
   'ui.router', 
-  'ngAnimate'
+  'ngAnimate',
+
+  'angular-jwt'
 ])
 
 .run(
@@ -40,17 +42,7 @@ angular.module('uiRouterSample', [
         // If the url is ever invalid, e.g. '/asdf', then redirect to '/' aka the home state
         .otherwise('/');
 
-
-      //////////////////////////
-      // State Configurations //
-      //////////////////////////
-
-      // Use $stateProvider to configure your states.
       $stateProvider
-
-        //////////
-        // Home //
-        //////////
 
         .state("home", {
 
@@ -70,10 +62,6 @@ angular.module('uiRouterSample', [
 
         })
 
-        ///////////
-        // About //
-        ///////////
-
         .state('about', {
           url: '/about',
 
@@ -91,6 +79,18 @@ angular.module('uiRouterSample', [
               }, 100);
             }]
         })
+
+        .state('login', {
+          url: '/login',
+          templateUrl: "/templates/login.html",
+          controller: 'LoginCtrl'
+        })
+
+        .state('scratchpad', {
+          url: '/scratchpad',
+          templateUrl: "/templates/scratchpad.html"
+        })
+
     }
   ]
 );

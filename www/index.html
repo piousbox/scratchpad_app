@@ -1,11 +1,15 @@
 <!doctype html>
-<!-- Our uiRouterSample module defined here -->
-<html lang="en" ng-app="uiRouterSample">
+<html lang="en" ng-app="scratchpadApp">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- using twitter bootstrap, but of course -->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap.min.css"> -->
+    
+    <link rel="stylesheet" type="text/css" href="vendor/f6/foundation.css" >
+    
     <!-- styles for ng-animate are located here -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -30,50 +34,54 @@
     <script src="app/contacts/contacts-service.js"></script>
     <script src="common/utils/utils-service.js"></script>
 
+    <!-- scratchpad -->
+    <script src="app/scratchpad/scratchpad.js"></script><!-- module defining controller -->
+    
     <!-- could easily use a custom property of the state here instead of 'name' -->
-    <title ng-bind="$state.current.name + ' - ui-router'">ui-router</title>
+    <title ng-bind="$state.current.name + ' - scratchpad app'">scratchpad app</title>
   </head>
   <body>
-    hello?
-    this is root / www / index.html
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner"><div class="container">
+    <div class="row">
+      <div class="small-12 columns">
 
-        <!-- ui-sref is a great directive for linking a state location with an anchor link.
-             You should almost always use ui-sref instead of href on your links when you want
-             then to navigate to a state. When this link is clicked it will take the application
-             to the 'home' state. Behind the scenes the directive also adds the correct href attr
-             and url. -->
+        <ul class="vertical medium-horizontal menu">
+          <li><a ui-sref="scratchpad" >Scratchpad</a></li>
+          <li><a ui-sref="login" >Login</a></li>
+        </ul>
+
+      </div>
+    </div>
+    
+    <!-- old nagivation -->
+    <!-- <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner"><div class="container">
         <a class="brand" ui-sref="home">ui-router</a>
         <ul class="nav">
-
-        <!-- Here you can see ui-sref in action again. Also notice the use of $state.includes, which
-             will set the links to 'active' if, for example on the first link, 'contacts' or any of
-             its descendant states are activated. -->
           <li ng-class="{active: $state.includes('contacts')}"><a ui-sref="contacts.list">Contacts</a></li>
           <li ui-sref-active="active"><a ui-sref="about">About</a></li>
         </ul>
-
-        <!-- Here is a named ui-view. ui-views don't have to be named, but we'll populate this
-             one from various different child states and we want a name to help us target. -->
         <p ui-view="hint" class="navbar-text pull-right"></p>
       </div></div>
-    </div>
-
-    <!-- Here is the main ui-view (unnamed) and will be populated by its immediate children's templates
-         unless otherwise explicitly named views are targeted. It's also employing ng-animate. -->
+    </div> -->
+    
     <div ui-view class="container slide" style="padding-top: 80px;"></div>
-
 
     <hr>
     <pre>
-      <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
       $state = {{$state.current.name}}
       $stateParams = {{$stateParams}}
       $state full url = {{ $state.$current.url.source }}
-      <!-- $state.$current is not a public api, we are using it to
-           display the full url for learning purposes-->
-      another time ai ai ai 1.7.0
+      v1.8.0
     </pre>
+
+    <script src="vendor/jquery.js"></script>
+    <script src="vendor/what-input.js"></script>
+    <script src="vendor/f6/foundation.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() { $(document).foundation() });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+    
   </body>
 </html>

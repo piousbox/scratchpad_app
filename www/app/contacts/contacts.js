@@ -1,4 +1,4 @@
-angular.module('uiRouterSample.contacts', [
+angular.module('scratchpadApp.contacts', [
   'ui.router'
 ])
   
