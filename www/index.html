@@ -63,17 +63,22 @@
         <p ui-view="hint" class="navbar-text pull-right"></p>
       </div></div>
     </div> -->
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div ui-view class="container slide" style="padding-top: 80px;"></div>
+
+        <hr>
+        <pre>
+          $state = {{$state.current.name}}
+          $stateParams = {{$stateParams}}
+          $state full url = {{ $state.$current.url.source }}
+          v1.9.0
+        </pre>
+
+      </div>
+    </div>
     
-    <div ui-view class="container slide" style="padding-top: 80px;"></div>
-
-    <hr>
-    <pre>
-      $state = {{$state.current.name}}
-      $stateParams = {{$stateParams}}
-      $state full url = {{ $state.$current.url.source }}
-      v1.8.0
-    </pre>
-
     <script src="vendor/jquery.js"></script>
     <script src="vendor/what-input.js"></script>
     <script src="vendor/f6/foundation.js"></script>

@@ -1,6 +1,13 @@
 
+// From: https://github.com/auth0/angular-jwt
+
+var LoginCtrl = function($scope, $state, $httpProvider, jwtInterceptorProvider) {
+  jwtInterceptorProvider.tokenGetter = [function () {}];
+}
+
 angular.module('scratchpadApp.login', [
-  'ui.router'
+  'ui.router',
+  'angular-jwt'
 ])
 
 .config(
@@ -12,10 +19,7 @@ angular.module('scratchpadApp.login', [
           templateUrl: 'app/login/login.html',
           resolve: {
           },
-          controller: ['$scope', '$state',
-            function (  $scope,   $state) {
-              console.log('login ctrl');
-            }]
+          controller: ['$scope', '$state', '$http', 'jwtInterceptor', LoginCtrl]
         })
     }
   ]
