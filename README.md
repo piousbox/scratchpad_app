@@ -1,24 +1,8 @@
 # Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
-A PhoneGap Hello World template
-
-## Usage
-
-#### PhoneGap CLI
-
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
-
     phonegap create my-app
-
-Create an app using this template specifically:
-
     phonegap create my-app --template hello-world
-
-To see a list of other available PhoneGap templates:
-
     phonegap template list
-
-## [config.xml][config-xml]
 
 #### android-minSdkVersion (Android only)
 
@@ -27,18 +11,6 @@ Minimum SDK version supported on the target device. Maximum version is blank by 
 This template sets the minimum to `14`.
 
     <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
 
 #### Content Security Policy (CSP)
 
@@ -70,7 +42,14 @@ Another good resource for generating a good CSP declaration is [CSP is Awesome][
 
 ## Development
 
- _vp_ 20160507
+ _vp_ 20160507..8
  
- phonegap build browser
- 
+ phonegap build browser - ???
+
+ removing $ROOT/platforms allowed me to build the app correctly with build.phonegap.com. I guess building for the browser isn't necessarily the necessary step.
+
+## Resources
+
+- iOS development: https://developer.apple.com/enroll/
+- iOS development: https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html
+- JWT, rails, angular: http://adamalbrecht.com/2014/12/04/add-json-web-token-authentication-to-your-angular-rails-app/

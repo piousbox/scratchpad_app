@@ -1,20 +1,21 @@
 
 angular.module('scratchpadApp', [
   'scratchpadApp.scratchpad',
-  'scratchpadApp.login',
+  'scratchpadApp.auth',
 
   // 'uiRouterSample.contacts',
   // 'uiRouterSample.contacts.service',
   // 'uiRouterSample.utils.service',
   'ui.router', 
   'ngAnimate',
+  'ngStorage',
 
-  'angular-jwt'
+  'angular-jwt',
 ])
 
 .run(
-  [          '$rootScope', '$state', '$stateParams',
-    function ($rootScope,   $state,   $stateParams) {
+  [          '$rootScope', '$state', '$stateParams', 'AuthEvents',
+    function ($rootScope,   $state,   $stateParams,   AuthEvents) {
 
     // It's very handy to add references to $state and $stateParams to the $rootScope
     // so that you can access them from any scope within your applications.For example,
@@ -22,13 +23,20 @@ angular.module('scratchpadApp', [
     // to active whenever 'contacts.list' or one of its decendents is active.
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+
+    /* $rootScope.$on(AuthEvents.notAuthorized, function () {
+      console.log('Not Authorized! Take care of it.');
+    }); */
+
     }
   ]
 )
 
 .config(
-  [          '$stateProvider', '$urlRouterProvider',
-    function ($stateProvider,   $urlRouterProvider) {
+  [          '$stateProvider', '$urlRouterProvider', '$httpProvider',
+    function ($stateProvider,   $urlRouterProvider,   $httpProvider) {
+
+      $httpProvider.interceptors.push('AuthInterceptor');
 
       /////////////////////////////
       // Redirects and Otherwise //
