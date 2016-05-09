@@ -28,7 +28,7 @@ var AuthService = function ($http, $q, $rootScope, $localStorage, AuthEvents) {
     return {
         login: function(username, password) {
             var d = $q.defer();
-            $http.post('http://localhost:3020/auth', {
+            $http.post('http://api.piousbox.com/auth', {
                 username: username,
                 password: password
             }).success(function(resp) {

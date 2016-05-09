@@ -58,9 +58,10 @@ angular.module('scratchpadApp', [
         // Here we are just setting up some convenience urls.
         .when('/c?id', '/contacts/:id')
         .when('/user/:id', '/contacts/:id')
+        .when('/', '/login')
 
         // If the url is ever invalid, e.g. '/asdf', then redirect to '/' aka the home state
-        .otherwise('/');
+        .otherwise('/login');
 
       $stateProvider
 
