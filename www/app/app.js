@@ -24,6 +24,15 @@ angular.module('scratchpadApp', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
+    $rootScope.alerts = $rootScope.alerts || {};
+    $rootScope.current_user = $rootScope.current_user || {};
+    // var alertCounter = 0;
+    $rootScope.addAlert = function (obj) {
+      if (!$rootScope.alerts[obj.text]) {
+        $rootScope.alerts[obj.text] = obj;
+      }
+    };
+
     /* $rootScope.$on(AuthEvents.notAuthorized, function () {
       console.log('Not Authorized! Take care of it.');
     }); */

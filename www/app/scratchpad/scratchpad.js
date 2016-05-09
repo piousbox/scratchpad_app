@@ -1,8 +1,16 @@
 
-var ScratchpadController = function ($scope, $state, $http) {
-  $http.get('http://localhost:3020/api/scratchpad').then(function(data) {
-    $scope.someData = data;
-  });;
+var ScratchpadController = function ($scope, $rootScope, $state, $http) {
+  $http.get('http://localhost:3020/api/scratchpad').then(function (data) {
+    $scope.scratchpadData = data.data;
+  });
+  $scope.save = function () {
+    console.log('saving...');
+    $http.post('http://localhost:3020/api/scratchpad', {
+      data: $scope.scratchpadData
+    }).then(function (data) {
+      $rootScope.addAlert({ text: 'Saved' });
+    });
+  }
 }
 
 angular.module('scratchpadApp.scratchpad', [
@@ -18,7 +26,7 @@ angular.module('scratchpadApp.scratchpad', [
           templateUrl: 'app/scratchpad/scratchpad.html',
           resolve: {
           },
-          controller: ['$scope', '$state', '$http', ScratchpadController]
+          controller: ['$scope', '$rootScope', '$state', '$http', ScratchpadController]
         })
     }
   ]

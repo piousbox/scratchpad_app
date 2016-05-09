@@ -12,6 +12,7 @@
     
     <!-- styles for ng-animate are located here -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <!-- Include angular.js, angular-animate.js and angular-ui-router.js-->
     <script src="vendor/angular-1.2.14/angular.js"></script>
@@ -43,14 +44,20 @@
     <title ng-bind="$state.current.name + ' - scratchpad app'">scratchpad app</title>
   </head>
   <body>    
-    <div class="row">
-      <div class="small-12 columns">
-
-        <ul class="vertical medium-horizontal menu">
-          <li><a ui-sref="scratchpad" >Scratchpad</a></li>
-          <li><a ui-sref="login" >Login</a></li>
-        </ul>
-
+    <div class="top-bar">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+          <button class="menu-icon dark" type="button" data-toggle ></button>
+        </span>
+        <strong>The Scratchpad App</strong>
+      </div>
+      <div id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu >
+            <li><a ui-sref="scratchpad" >Scratchpad</a></li>
+            <li><a ui-sref="login" >Login</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     
@@ -68,10 +75,17 @@
 
     <div class="row">
       <div class="small-12 columns">
-        <div ui-view class="container slide" style="padding-top: 80px;"></div>
+  
+        <br />
+
+        <div id="alerts">
+          <div alert ng-repeat="alert in alerts" ></div>
+        </div>
+
+        <div ui-view class="container slide"></div>
 
         <hr>
-        <pre>
+        <pre class="debug" >
           $state = {{$state.current.name}}
           $stateParams = {{$stateParams}}
           $state full url = {{ $state.$current.url.source }}
