@@ -4,7 +4,7 @@ var ScratchpadController = function ($scope, $rootScope, $state, $http) {
     $scope.scratchpadData = data.data;
   });
   $scope.save = function () {
-    $http.post('http://api.piousbox.com/api/scratchpad', {
+    $http.post('http://staging.api.piousbox.com/api/scratchpad', {
       data: $scope.scratchpadData
     }).then(function (data) {
       $rootScope.addAlert({ text: 'Saved' });

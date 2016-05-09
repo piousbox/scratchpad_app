@@ -28,7 +28,7 @@ var AuthService = function ($http, $q, $rootScope, $localStorage, AuthEvents) {
     return {
         login: function(username, password) {
             var d = $q.defer();
-            $http.post('http://api.piousbox.com/auth', {
+            $http.post('http://staging.api.piousbox.com/auth', {
                 username: username,
                 password: password
             }).success(function(resp) {
@@ -68,15 +68,6 @@ var AuthInterceptor = function ($q, $injector) {
         responseError: function (response) {
             var storage = $injector.get('$localStorage');
             var $rootScope = $injector.get('$rootScope');
-            /* var AuthEvents = $injector.get('AuthEvents');
-            var matchesAuthenticatePath = response.config && response.config.url.match(new RegExp('/api/auth'));
-            if (!matchesAuthenticatePath) {
-                $injector.get('$rootScope').$broadcast({
-                    401: AuthEvents.notAuthenticated,
-                    403: AuthEvents.notAuthorized,
-                    419: AuthEvents.sessionTimeout
-                }[response.status], response);
-            } */
             if (response.status === 401 || response.status === 403) {
                 delete storage.auth_token;
                 $rootScope.addAlert({ text: 'Please login' });
