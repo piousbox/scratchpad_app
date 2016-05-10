@@ -6,6 +6,6 @@ cp www/app/config.js www/app/config.js.trash
 cp www/app/config.js-production www/app/config.js
 git add .
 git commit -m 'autobuild'
-git push origin 1.1.0
+git push pi 1.1.0
 cp www/app/config.js.trash www/app/config.js
 

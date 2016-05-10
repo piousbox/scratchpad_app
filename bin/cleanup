@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ex
+
+cp www/app/config.js.trash www/app/config.js
+
