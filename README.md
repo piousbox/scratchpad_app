@@ -53,3 +53,5 @@ Another good resource for generating a good CSP declaration is [CSP is Awesome][
 - iOS development: https://developer.apple.com/enroll/
 - iOS development: https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html
 - JWT, rails, angular: http://adamalbrecht.com/2014/12/04/add-json-web-token-authentication-to-your-angular-rails-app/
+- chrome://inspect
+- chrome: about:inspect
