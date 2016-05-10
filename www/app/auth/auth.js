@@ -24,11 +24,11 @@ var LoginCtrl = function ($rootScope, $scope, $state, $http, $localStorage, Auth
   }
 }
 
-var AuthService = function ($http, $q, $rootScope, $localStorage, AuthEvents) {
+var AuthService = function ($http, $q, $rootScope, $localStorage, Config, AuthEvents) {
     return {
         login: function(username, password) {
             var d = $q.defer();
-            $http.post('http://staging.api.piousbox.com/auth', {
+            $http.post(Config.api_endpoint + '/auth', {
                 username: username,
                 password: password
             }).success(function(resp) {
@@ -82,7 +82,7 @@ angular.module('scratchpadApp.auth', [
   'ui.router',
   'angular-jwt'
 ])
-.factory('AuthService', ['$http', '$q', '$rootScope', '$localStorage', 'AuthEvents', AuthService])
+.factory('AuthService', ['$http', '$q', '$rootScope', '$localStorage', 'Config', 'AuthEvents', AuthService])
 .factory('AuthInterceptor', ['$q', '$injector', AuthInterceptor])
 .constant('AuthEvents', {})
 .directive('alert', ['$timeout', '$rootScope', function ($timeout, $rootScope) {  

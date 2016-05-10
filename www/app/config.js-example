@@ -1,0 +1,8 @@
+'use strict';
+
+var myApp = angular.module('scratchpadApp');
+
+myApp.value('Config', { api_endpoint: 'http://localhost:3004/api' });
+
+myApp.value('version', '1.15.0');
+

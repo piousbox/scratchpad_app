@@ -6,11 +6,12 @@ angular.module('scratchpadApp', [
   // 'uiRouterSample.contacts',
   // 'uiRouterSample.contacts.service',
   // 'uiRouterSample.utils.service',
+
   'ui.router', 
   'ngAnimate',
   'ngStorage',
 
-  'angular-jwt',
+  'angular-jwt'
 ])
 
 .run(
@@ -33,9 +34,9 @@ angular.module('scratchpadApp', [
       }
     };
 
-    /* $rootScope.$on(AuthEvents.notAuthorized, function () {
+    $rootScope.$on(AuthEvents.notAuthorized, function () {
       console.log('Not Authorized! Take care of it.');
-    }); */
+    });
 
     }
   ]
